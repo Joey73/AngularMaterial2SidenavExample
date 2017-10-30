@@ -1,0 +1,71 @@
+<div layout="column" class="section" ng-cloak>
+  <mat-toolbar mat-whiteframe="4" layout="row">
+    <mat-list layout="row">
+      <mat-list-item>
+        <button mat-button class="mat-icon-button" aria-label="Settings" ng-click="closeSidenav()" ng-disabled="!isOpen"><mat-icon class="material-icons">reorder</mat-icon></button>
+      </mat-list-item>
+      <mat-list-item>
+        Angular Material Custom Sidenav Template
+      </mat-list-item>
+    </mat-list>
+  </mat-toolbar>
+  
+  <div class="container" layout="row" flex>
+    <mat-sidenav mat-component-id="l-sidenav" class="locked-sidebar" mat-is-locked-open="true" mat-whiteframe="4">
+      <mat-list>
+        <mat-list-item ng-click="toggleExpanded(1)" ng-class="{ 'side-button-active': isSelected(1) && isOpen }">
+          <i ng-class="{ 'side-icon-active': isSelected(1) && isOpen,'side-icon-inactive': !isSelected(1), 'material-icons': true}">assignment</i>
+        </mat-list-item>
+        <mat-list-item ng-click="toggleExpanded(2)" ng-class="{ 'side-button-active': isSelected(2) && isOpen }">
+          <i ng-class="{ 'side-icon-active': isSelected(2) && isOpen,'side-icon-inactive': !isSelected(2), 'material-icons': true}">person</i>
+        </mat-list-item>
+        <mat-list-item ng-click="toggleExpanded(3)" ng-class="{ 'side-button-active': isSelected(3) && isOpen }">
+          <i ng-class="{ 'side-icon-active': isSelected(3) && isOpen,'side-icon-inactive': !isSelected(3), 'material-icons': true}">list</i>
+        </mat-list-item>
+        <mat-list-item ng-click="toggleExpanded(4)" ng-class="{ 'side-button-active': isSelected(4) && isOpen }">
+          <i ng-class="{ 'side-icon-active': isSelected(4) && isOpen,'side-icon-inactive': !isSelected(4), 'material-icons': true}">laptop</i>
+        </mat-list-item>
+        <mat-list-item ng-click="toggleExpanded(5)" ng-class="{ 'side-button-active': isSelected(5) && isOpen }">
+          <i ng-class="{ 'side-icon-active': isSelected(5) && isOpen,'side-icon-inactive': !isSelected(5), 'material-icons': true}">phone</i>
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav mat-component-id="t-sidenav" class="toggleable-sidebar" ng-show="isOpen" mat-is-locked-open="true" mat-whiteframe="4">
+      
+      <section ng-show="isSelected(1)" layout="column">
+        <mat-toolbar class="mat-toolbar-tools side-toolbar mat-accent">
+          <h1>Content 1</h1>
+        </mat-toolbar>
+        <div layout-padding flex>
+          Content 1
+        </div>
+      </section>
+      
+      <section ng-show="isSelected(2)" layout="column">
+        <mat-toolbar class="mat-toolbar-tools side-toolbar mat-accent">
+          <h1>Content 2</h1>
+        </mat-toolbar>
+        <div layout-padding flex>
+          Content 2
+        </div>
+      </section>
+    </mat-sidenav>
+    
+    <div layout-margin layout-padding flex="50">
+      <mat-card>
+        <mat-card-title>
+          <mat-card-subtitle>
+            <span class="mat-headline">isOpen</span>
+            <span class="mat-subhead">{{ isOpen }}</span>
+          </mat-card-subtitle>
+        </mat-card-title>
+        <mat-card-actions layout="row" layout-align="start center">
+          <button mat-button>Action 1</button>
+          <button mat-button>Action 2</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    
+  </div>
+
+</div>
